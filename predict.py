@@ -8,6 +8,7 @@ from tensorflow.keras.layers import Input, LSTM, Dense
 pickle_filename = "pickledInfo.pickle"
 model_filename = "xorModel.h5"
 
+
 with open("files/" + pickle_filename, "rb") as pickle_file:
     info = pickle.load(pickle_file)
 
