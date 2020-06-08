@@ -42,7 +42,7 @@ decoder_outputs = decoder_dense(decoder_outputs)
 decoder_model = Model([decoder_inputs] + decoder_states_inputs, [decoder_outputs] + decoder_states)
 
 
-def decode_sequence(input_seq):
+def decode_sequence(input_seq, input_length):
     states_value = encoder_model.predict(input_seq)
 
     target_seq = np.zeros((1, 1, num_decoder_tokens))
@@ -57,7 +57,7 @@ def decode_sequence(input_seq):
         sampled_char = reverse_target_char_index[sampled_token_index]
         decoded_sentence += sampled_char
 
-        if (sampled_char == '\n') or (len(decoded_sentence) > max_decoder_seq_length):
+        if (sampled_char == '\n') or (len(decoded_sentence) == input_length):
             stop_condition = True
 
         target_seq = np.zeros((1, 1, num_decoder_tokens))

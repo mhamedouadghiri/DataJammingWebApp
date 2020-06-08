@@ -24,7 +24,7 @@ def compute_cipher(message):
 	return result
 
 def compute_prediction(toDecode):
-	res = decode_sequence(process_text(toDecode))
+	res = decode_sequence(process_text(toDecode), len(toDecode))
 	return res
 
 
