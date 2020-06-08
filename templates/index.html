@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+</head>
+
+<body>
+	<h1>Data Jamming & recovery with AI</h1>
+
+	<form name="passdata", action="{{ url_for('_get_data') }}", method="post">
+		<div class="container">
+			<p>Please specify the message.</p>
+
+			<label for="message"><b>Message</b></label>
+			<input type="text" placeholder="Enter Message" name="message" id="message" required>
+			<br><br>
+
+			<button type="submit" class="submitBtn">Submit</button>
+			<br><br>
+		</div>
+	</form>
+
+	<!-- Start Invisible Things -->
+	
+	{% if message %}
+		<p>Message: {{message}}</p>
+	{% endif %}
+
+	{% if message %}
+		<p>Key: pfa2020</p>
+	{% endif %}
+
+	{% if result %}
+		<p>Encrypted: {{result}}</p>
+	{% endif %}
+
+	{% if prediction %}
+		<p>Prediction: {{prediction}}</p>
+	{% endif %}
+
+	<!-- End Invisible Things -->
+
+</body>
+</html>
