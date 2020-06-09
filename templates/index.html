@@ -2,16 +2,15 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>index</title>
+	<title>AI data recovery</title>
 </head>
 
 <body>
-	<h1>Data Jamming & recovery with AI</h1>
+	<h1>Data jamming & recovery with AI</h1>
 
-	<form name="passdata", action="{{ url_for('_get_data') }}", method="post">
+	<form name="passdata", action="{{url_for('_get_data')}}", method="post">
 		<div class="container">
-			<p>Please specify the message with a maximum length of 41 characters.</p>
-			<p>Please let your message be in english for better accuracy.</p>
+			<p>Please specify your message in english with a maximum length of 41 characters.</p>
 
 			<label for="message"><b>Message</b></label>
 			<input type="text" placeholder="Enter Message" name="message" id="message" required maxlength="41">
