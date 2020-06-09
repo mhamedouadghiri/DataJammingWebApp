@@ -11,6 +11,7 @@
 	<form name="passdata", action="{{ url_for('_get_data') }}", method="post">
 		<div class="container">
 			<p>Please specify the message with a maximum length of 41 characters.</p>
+			<p>Please let your message be in english for better accuracy.</p>
 
 			<label for="message"><b>Message</b></label>
 			<input type="text" placeholder="Enter Message" name="message" id="message" required maxlength="41">
@@ -24,13 +25,14 @@
 	<!-- Start Invisible Things -->
 	
 	{% if message %}
+		<p> You submited the text <b>"{{message}}"</b>.</p>
+		<p>	We encrypted this message with the key <b>"pfa2020"</b>.</p>
+		<p>	The encrypted text is <b>"{{result}}"</b>.</p>
+		<p>	Now we will use our AI to try and recover the original message from this encrypted result.</p>
+		<p>	Let's feed <b>"{{result}}"</b> to the AI.</p>
 		<p>
-			You submited the text <b>"{{message}}"</b>.<br>
-			We encrypted this message with the key <b>"pfa2020"</b>.<br>
-			The encrypted text is <b>"{{result}}"</b>.<br>
-			Now we will use our AI to try and recover the original message from this encrypted result.<br>
-			Let's feed <b>"{{result}}"</b> to the AI.<br>
-			The AI predicts that <b>"{{result}}</b>" refers to the plaintext <b>"{{prediction}}"</b>.<br>
+			The AI predicts that <b>"{{result}}</b>" refers to the plaintext <b>"{{prediction}}"</b>
+			 (accurracy = <b>{{accuracy}}%)</b>.
 		</p>
 	{% endif %}
 
