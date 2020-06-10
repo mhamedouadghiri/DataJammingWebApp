@@ -4,12 +4,12 @@
     <title>Data recovery with AI</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/ionicons.min.css') }}">
 
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -26,70 +26,71 @@
 
 <body>
 
-	<div class="hero-wrap js-fullheight">
-      <div class="overlay"></div>
-      <div id="particles-js"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center" style="flex-direction:column;">
-
+<div class="hero-wrap js-fullheight">
+    <div class="overlay"></div>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center"
+             style="flex-direction:column;">
 
             <h1 class="mb-4">Data jamming & recovery with AI</h1>
 
-              <p>Your input must be an english sentence that begins with a capital letter and ends with a point.</p>
-              <p>Example: You reap what you sow.</p>
+            <p>Your input must be an english sentence that begins with a capital letter and ends with a point.</p>
+            <p>Example: You reap what you sow.</p>
 
+            <form name="passdata" action="{{url_for('_get_data')}}" method="post" style="text-align:center;">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter Message" name="message" id="message"
+                           required maxlength="41" style="width:490px;">
+                </div>
 
-               <form name="passdata", action="{{url_for('_get_data')}}", method="post" style="text-align:center;">
-           
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary py-3 px-5 submitBtn">
+                </div>
+            </form>
 
-	               <div class="form-group">
-	                <input type="text" class="form-control" placeholder="Enter Message" name="message" id="message" required maxlength="41" style="width:490px;">
-	              </div>
+            <!-- Start Invisible Things -->
 
+            {% if message %}
+            <p>You submited the text <b>"{{message}}"</b>.</p>
+            <p>That we encrypted to <b>"{{result}}"</b>.</p>
+            <p>Now we will use our AI to try and recover the original message from this encrypted result.</p>
+            <p>Let's feed <b>"{{result}}"</b> to the AI.</p>
+            <p>The AI predicts that <b>"{{result}}</b>" refers to the plaintext <b>"{{prediction}}"</b> (accurracy = <b>{{accuracy}}%)</b>.
+            </p>
+            {% endif %}
 
-	             	<div class="form-group">
-	                <input type="submit" value="Submit" class="btn btn-primary py-3 px-5 submitBtn">
-	              </div>
-	      
-          
-          
-      			</form>
-
-			<!-- Start Invisible Things -->
-			
-			{% if message %}
-				<p>You submited the text <b>"{{message}}"</b>.</p>
-				<p>That we encrypted to <b>"{{result}}"</b>.</p>
-				<p>Now we will use our AI to try and recover the original message from this encrypted result.</p>
-				<p>Let's feed <b>"{{result}}"</b> to the AI.</p>
-				<p>The AI predicts that <b>"{{result}}</b>" refers to the plaintext <b>"{{prediction}}"</b> (accurracy = <b>{{accuracy}}%)</b>.</p>
-			{% endif %}
-
-			<!-- End Invisible Things -->
+            <!-- End Invisible Things -->
 
         </div>
-      </div>
     </div>
+</div>
 
 
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
-	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/jquery-migrate-3.0.1.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/aos.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/jquery.animateNumber.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/particle.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/scrollax.min.js') }}"></script>
-	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery-migrate-3.0.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.stellar.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/aos.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.animateNumber.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/particles.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/particle.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scrollax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
 </html>
